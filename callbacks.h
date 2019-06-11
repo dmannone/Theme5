@@ -22,6 +22,7 @@ extern GtkTextBuffer *buffer3;
 //importer la variable globale du fichier main
 extern char touches_input[256];
 extern char mots_exacts_input[5000];
+extern char mots_completions_input[5000];
 //importer la variable globale du fichier main
 extern int touches_input_index;
 

@@ -1,6 +1,7 @@
 #include "interface.h"
 
 void contruction_interface(int argc, char *argv[]){
+
 	  GtkWidget *main_window;
 
 	  /* Initialisation de GTK */
@@ -16,6 +17,9 @@ void contruction_interface(int argc, char *argv[]){
 	  /* Recuperation du widget de la fenetre principale */
 	  main_window = GTK_WIDGET (gtk_builder_get_object (builder, "MainWindow"));
 	  gtk_window_set_title (GTK_WINDOW (main_window), "Theme5 - 9 Key");
+
+	  gtk_widget_set_size_request(main_window, 800, 600);
+	  gtk_window_set_resizable (GTK_WINDOW(main_window), FALSE);
 
 	  /* ajout de l'event à la callback deleve-event on_main_window_destroy pour fermer l'application */
 	  g_signal_connect (GTK_WINDOW (main_window), "destroy", G_CALLBACK(on_main_window_destroy), NULL);
@@ -40,12 +44,16 @@ void contruction_interface(int argc, char *argv[]){
 	  GtkWidget *bouton9 = GTK_WIDGET (gtk_builder_get_object (builder, "button9"));
 	  g_signal_connect (G_OBJECT (bouton9), "clicked", G_CALLBACK(on_button_button9_clicked), NULL);
 
+	  gtk_widget_set_size_request(GTK_WIDGET (gtk_builder_get_object (builder, "table1")), 500, 550);
 	  //Initialiser les buffers des textviews
 	  vue1 = GTK_TEXT_VIEW (gtk_builder_get_object (builder, "textview1"));
+	  gtk_widget_set_size_request(GTK_WIDGET (gtk_builder_get_object (builder, "textview1")), 500, 50);
 	  buffer1 = gtk_text_view_get_buffer (vue1);
 	  vue2 = GTK_TEXT_VIEW (gtk_builder_get_object (builder, "textview2"));
+	  gtk_widget_set_size_request(GTK_WIDGET (gtk_builder_get_object (builder, "textview2")), 200, 275);
 	  buffer2 = gtk_text_view_get_buffer (vue2);
 	  vue3 = GTK_TEXT_VIEW (gtk_builder_get_object (builder, "textview3"));
+	  gtk_widget_set_size_request(GTK_WIDGET (gtk_builder_get_object (builder, "textview3")), 200, 275);
 	  buffer3 = gtk_text_view_get_buffer (vue3);
 
 	  /* Changement de la fenetre principale a l'etat visible */

@@ -6,4 +6,4 @@ set /p pkg-info= <tmp.txt
 del tmp.txt
  
 rem echo %pkg-info%
-gcc -g main.c noeud.c mot.c touche.c util.c arbre.c callbacks.c interface.c -o main.exe -Wall %pkg-info%
+gcc -g main.c noeud.c mot.c touche.c arbre.c callbacks.c interface.c -o main.exe -Wall %pkg-info%

@@ -15,7 +15,6 @@
 #include "mot.h"
 #include "noeud.h"
 #include "touche.h"
-#include "util.h"
 #include "arbre.h"
 #include "interface.h"
 
@@ -30,8 +29,10 @@ GtkTextBuffer *buffer2;
 GtkTextBuffer *buffer3;
 
 char touches_input[256];
-char mots_exacts_input[5000];
 int touches_input_index = 0;
+char mots_exacts_input[5000];
+char mots_completions_input[5000];
+
 
 int main (int argc, char *argv[]) {
 

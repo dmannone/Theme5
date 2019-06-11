@@ -72,18 +72,23 @@ mot * rechercher_mots_dans_larbre(noeud *n, int *touches)
 	int count_fils = 0;
 
 	while(1) {
-		while(n->suivant) {
+		while(n != NULL && n->suivant) {
 			if(n->touche == touches[i])
 				break;
 			count_suivant++;
 			n = n->suivant;
 		}
 		count_fils++;
-		if(touches[i+1] >= 2 && touches[i+1] <= 9)
+		if(touches[i+1] >= 2 && touches[i+1] <= 9) {
+			if(!n)
+				return NULL;
 			n = n->fils;
+		}
 		else
 			break;
 		i++;
 	}
+	if(!n)
+		return NULL;
 	return n->mot;
 }
