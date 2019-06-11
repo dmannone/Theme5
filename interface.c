@@ -20,6 +20,7 @@ void contruction_interface(int argc, char *argv[]){
 	  /* ajout de l'event à la callback deleve-event on_main_window_destroy pour fermer l'application */
 	  g_signal_connect (GTK_WINDOW (main_window), "destroy", G_CALLBACK(on_main_window_destroy), NULL);
 
+	  // Ajout des signaux clicked pour les boutons
 	  GtkWidget *bouton1 = GTK_WIDGET (gtk_builder_get_object (builder, "button1"));
 	  g_signal_connect (G_OBJECT (bouton1), "clicked", G_CALLBACK(on_button_button1_clicked), NULL);
 	  GtkWidget *bouton2 = GTK_WIDGET (gtk_builder_get_object (builder, "button2"));
@@ -38,6 +39,14 @@ void contruction_interface(int argc, char *argv[]){
 	  g_signal_connect (G_OBJECT (bouton8), "clicked", G_CALLBACK(on_button_button8_clicked), NULL);
 	  GtkWidget *bouton9 = GTK_WIDGET (gtk_builder_get_object (builder, "button9"));
 	  g_signal_connect (G_OBJECT (bouton9), "clicked", G_CALLBACK(on_button_button9_clicked), NULL);
+
+	  //Initialiser les buffers des textviews
+	  vue1 = GTK_TEXT_VIEW (gtk_builder_get_object (builder, "textview1"));
+	  buffer1 = gtk_text_view_get_buffer (vue1);
+	  vue2 = GTK_TEXT_VIEW (gtk_builder_get_object (builder, "textview2"));
+	  buffer2 = gtk_text_view_get_buffer (vue2);
+	  vue3 = GTK_TEXT_VIEW (gtk_builder_get_object (builder, "textview3"));
+	  buffer3 = gtk_text_view_get_buffer (vue3);
 
 	  /* Changement de la fenetre principale a l'etat visible */
 	   gtk_widget_show_all (main_window);

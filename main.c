@@ -21,7 +21,16 @@
 
 noeud * arbre;
 GtkBuilder *builder;
-int touches_input[256];
+
+GtkTextView *vue1;
+GtkTextView *vue2;
+GtkTextView *vue3;
+GtkTextBuffer *buffer1;
+GtkTextBuffer *buffer2;
+GtkTextBuffer *buffer3;
+
+char touches_input[256];
+char mots_exacts_input[5000];
 int touches_input_index = 0;
 
 int main (int argc, char *argv[]) {

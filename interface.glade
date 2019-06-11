@@ -6,6 +6,7 @@
   <object class="GtkWindow" id="MainWindow">
     <property name="border_width">10</property>
     <property name="resizable">False</property>
+    <property name="window_position">center-on-parent</property>
     <property name="destroy_with_parent">True</property>
     <child>
       <object class="GtkHPaned" id="hpaned1">
@@ -170,10 +171,10 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkEntry" id="entry1">
+                  <object class="GtkTextView" id="textview1">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="invisible_char">&#x25CF;</property>
+                    <property name="editable">False</property>
                   </object>
                   <packing>
                     <property name="resize">True</property>
@@ -212,7 +213,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkTextView" id="textview1">
+                  <object class="GtkTextView" id="textview2">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="border_width">5</property>
@@ -245,7 +246,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkTextView" id="textview2">
+                  <object class="GtkTextView" id="textview3">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="border_width">5</property>
