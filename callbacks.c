@@ -17,16 +17,19 @@ void mise_a_jour_des_buffers(int boolean_reset) {
 	gtk_text_buffer_get_iter_at_line(buffer2, &iter_debut, 0);
     gtk_text_buffer_get_iter_at_line(buffer2, &iter_fin, 5000);
     gtk_text_buffer_delete(buffer2, &iter_debut, &iter_fin);
-	for(int i = 0; i < 5000; i++)
-			mots_exacts_input[i] = '\0';
+    int touches_input_int[5000] = { 0 };
+
 	if(boolean_reset != 0){
-		int touches_input_int[5000];
 		int count = 0;
 		while (((touches_input[count] - '0') >= 2) && ((touches_input[count] - '0') <= 9)) {
 			touches_input_int[count] = touches_input[count] - '0';
 			count++;
 		}
 
+		for(int i =0; i < 10; i++) {
+			printf("touches_input_int[%d]\n", touches_input_int[i]);
+		}
+		printf("\n");
 		mot * m = rechercher_mots_dans_larbre(arbre, touches_input_int);
 		strcat(mots_exacts_input, m->mot);
 		strcat(mots_exacts_input, "\n");
@@ -37,7 +40,6 @@ void mise_a_jour_des_buffers(int boolean_reset) {
 		}
 	}
 	gtk_text_buffer_set_text (buffer2, mots_exacts_input, -1);
-
 }
 
 void ajouter_une_lettre_dans_touches_input(char c) {
@@ -51,6 +53,8 @@ void ajouter_une_lettre_dans_touches_input(char c) {
 void on_button_button1_clicked (GtkObject *object, gpointer user_data) {
 	for(int i = 0; i < 256; i++)
 		touches_input[i] = '\0';
+	for(int i = 0; i < 5000; i++)
+		mots_exacts_input[i] = '\0';
 	touches_input_index = 0;
 	mise_a_jour_des_buffers(0);
 }
